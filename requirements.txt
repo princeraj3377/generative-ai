@@ -1,0 +1,10 @@
+langchain
+langchain-openai
+python-dotenv
+langchain-google-genai
+streamlit
+langchain-ollama
+langchain-groq
+langchain-community
+
+# Requires Python 3.10+
