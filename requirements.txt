@@ -11,4 +11,6 @@ pypdf
 beautifulsoup4
 wikipedia
 langchain-text-splitters
+langchain-chroma
+
 # Requires Python 3.10+
