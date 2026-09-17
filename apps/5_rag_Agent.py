@@ -92,9 +92,32 @@ def process_document(path):
 
 
 ##upload ui
+st.title("📚 DocuChat AI")
+st.caption("Your personal AI document assistant")
+
 
 if not st.session_state.document_uploaded:
-    uploaded = st.file_uploader(label="stect file",type=["pdf"],accept_multiple_files=True)
+    st.markdown("""
+    ### Turn your documents into a conversation
+
+    Upload your PDFs and ask questions in your own words.
+
+    **What can you do?**
+    - 🔍 Find specific information inside your documents
+    - 📝 Summarize lengthy content
+    - 💬 Ask follow-up questions with conversation memory
+
+    ### Ready to explore?
+    Upload one or more PDFs below to get started.
+    """)
+
+    st.info(
+        '💡 Try asking: "Summarize this document" '
+        'or "What are the key points?"'
+
+    )
+    
+    uploaded = st.file_uploader(label="Upload your PDF documents",type=["pdf"],accept_multiple_files=True)
     if uploaded :
         with st.spinner("loading"):
             path = "./docs_file/"
@@ -116,7 +139,7 @@ if st.session_state.document_uploaded and st.session_state.agent:
 
 
 
-    quey =st.chat_input("ask any thing realted to uploaded document")
+    quey =st.chat_input("🤖Ask any thing realted to uploaded document")
     if quey:
         st.session_state.messages.append({"role":"user","content":quey})
         st.chat_message("user").markdown(quey)
